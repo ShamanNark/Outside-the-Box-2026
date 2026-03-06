@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b3u84076due2"]
+
+[ext_resource type="PackedScene" uid="uid://c1sx7bic4uhdj" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://vk50tubkjkm1" path="res://PineTree.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://y38gte5o0xf8" path="res://mob.tscn" id="3_feb5d"]
+
+[sub_resource type="Curve2D" id="Curve2D_feb5d"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -60, -101, 0, 0, 0, 0, 1948, -101, 0, 0, 0, 0, 1975, 1121)
+}
+point_count = 3
+
+[node name="Game" type="Node2D" unique_id=1482947593]
+y_sort_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1029631333]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1936020106]
+offset_right = 1918.0
+offset_bottom = 1079.0
+
+[node name="Mob" parent="." unique_id=1377564960 instance=ExtResource("3_feb5d")]
+position = Vector2(359, 338)
+
+[node name="Mob2" parent="." unique_id=1780240620 instance=ExtResource("3_feb5d")]
+position = Vector2(776, 592)
+
+[node name="Mob3" parent="." unique_id=731710647 instance=ExtResource("3_feb5d")]
+position = Vector2(1329, 321)
+
+[node name="Mob4" parent="." unique_id=1774483755 instance=ExtResource("3_feb5d")]
+position = Vector2(767, 135)
+
+[node name="Player" parent="." unique_id=46159699 instance=ExtResource("1_80nbo")]
+position = Vector2(1419, 784)
+
+[node name="PineTree" parent="." unique_id=1895480136 instance=ExtResource("2_e2o6t")]
+position = Vector2(183, 194)
+
+[node name="PineTree2" parent="." unique_id=2065173994 instance=ExtResource("2_e2o6t")]
+position = Vector2(1192, 519)
+
+[node name="PineTree3" parent="." unique_id=1735618053 instance=ExtResource("2_e2o6t")]
+position = Vector2(1125, 213)
+
+[node name="PineTree4" parent="." unique_id=1660336268 instance=ExtResource("2_e2o6t")]
+position = Vector2(326, 526)
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1321553155]
+curve = SubResource("Curve2D_feb5d")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=138999246]
+position = Vector2(-60, -101)

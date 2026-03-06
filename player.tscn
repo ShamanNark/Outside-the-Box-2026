@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c1sx7bic4uhdj"]
+
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://brvlsv1ci5w12" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://du5i8r7jdycua" path="res://gun.tscn" id="2_i3pqv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i3pqv"]
+radius = 43.0
+height = 120.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
+radius = 41.23106
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtel"]
+bg_color = Color(0.15294118, 0.16862746, 0.1882353, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
+bg_color = Color(0.27193952, 0.7096568, 0.1802985, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Player" type="CharacterBody2D" unique_id=46159699]
+script = ExtResource("1_onrkg")
+
+[node name="Gun" parent="." unique_id=37494187 instance=ExtResource("2_i3pqv")]
+position = Vector2(-1, -31)
+
+[node name="HappyBoo" parent="." unique_id=1091727253 instance=ExtResource("1_4flbx")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=594313713]
+position = Vector2(0, -37)
+shape = SubResource("CapsuleShape2D_i3pqv")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=867189836]
+position = Vector2(1, -21)
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=1433296314]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1102891060]
+position = Vector2(-1.0000002, -12)
+rotation = -0.35381398
+shape = SubResource("CircleShape2D_i3pqv")
+debug_color = Color(0.9690922, 0.1469706, 0.25858924, 0.41960785)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1270881096]
+unique_name_in_owner = true
+offset_left = -111.0
+offset_top = -131.0
+offset_right = 111.0
+offset_bottom = -104.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hqtel")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i3pqv")
+value = 100.0
